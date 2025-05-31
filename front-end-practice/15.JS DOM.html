@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript DOM</title>
+</head>
+<body>
+    <!-- DOM用来获取元素节点 -->
+
+    <div id="box1">这是一个ID选择器标签</div>
+    <div class="box2">这是一个类选择器标签</div>
+    <div>普通的div标签</div>
+    <button>点击按钮</button>
+
+    <Script>
+        // 通过id获取
+        var element_id = document.getElementById('box1');
+        console.log(element_id);
+
+        //通过类名获取
+        // 由于class不唯一，因此查找到的是一个数组，加[0]即表示只获取第一个
+        var element_class = document.getElementsByClassName('box2')[0];
+        console.log(element_class);
+
+        //通过标签名获取
+        // 由于div不唯一，因此查找到的是一个数组，加[2]即表示只获取第三个
+        var element_tag = document.getElementsByTagName('div')[2];
+        console.log(element_tag);
+
+        // 获取节点之后，修改节点的内容
+        element_id.innerHTML = '修改ID选择器标签文本内容';//innerHTML不仅可以改变文本，还可以解析文本中的内容，比如可以将文本改成一个超链接：<a href="#">跳转链接</a>
+        element_class.innerText = '修改后的类选择器文本';//innerText仅能改变纯文本，不会解析
+
+        element_tag.style.color = 'red';
+        element_tag.style.fontSize = '30px';
+
+        //DOM属性绑定事件
+        var button_element = document.getElementsByTagName('button')[0];
+        console.log(button_element);
+// 事件，DOM绑定方法
+        // button_element.onclick = function(){
+        //     alert('DOM 属性 按键触发');
+        // };
+// 事件，addEventListener绑定方法
+        button_element.addEventListener('click',function(){
+            alert('通过 addEventListener 触发案件');
+        });
+
+
+    </Script>
+</body>
+</html>
